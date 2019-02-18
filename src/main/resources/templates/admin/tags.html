@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>標籤管理</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+
+<nav th:replace="admin/_fragments :: menu(3)" class="ui inverted attached segment m-padded-tb-mini">
+    <div class="ui container">
+    <div class="ui inverted secondary stackable menu">
+        <h2 class="ui blue header">後台管理</h2>
+        <a href="#" class="m-item item m-mobile-hide">網誌</a>
+        <a href="#" class="m-item item m-mobile-hide">分類</a>
+        <a href="#" class="m-item item m-mobile-hide">標籤</a>
+        <div class="right m-item m-mobile-hide menu">
+            <div class="ui dropdown item">
+                <div class="text">
+                    <img src="../../static/images/howaii.JPG" alt="" class="ui avatar image">
+                    朱宸頡
+                </div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <a href="#" class="item">登出</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+
+</nav>
+<div class="ui attached pointing menu">
+    <div class="ui container">
+        <div class="right menu">
+            <a href="#" th:href="@{/admin/tags/input}" class="item">新增</a>
+            <a href="#" th:href="@{/admin/tags}" class="active blue item">列表</a>
+        </div>
+
+    </div>
+
+</div>
+<!--中間內容-->
+<div class="m-padded-tb-big m-container-small">
+    <div class="ui container">
+        <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+            <i class="close icon"></i>
+            <div class="header">提示： </div>
+            <p th:text="${message}">成功！！</p>
+        </div>
+
+        <table class="ui compact blue table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>標籤名稱</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr th:each="tag,iterStat : ${page.content}">
+                <td th:text="${iterStat.count}">1</td>
+                <td th:text="${tag.name}"></td>
+                <td>
+                    <a href="#" th:href="@{/admin/tags/{id}/input(id=${tag.id})}" class="ui mini basic blue button">編輯</a>
+                    <a href="#" th:href="@{/admin/tags/{id}/delete(id=${tag.id})}" class="ui mini basic red button">刪除</a>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="6" >
+                        <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
+                            <a th:href="@{/admin/tags(page=${page.number}-1)}" class="icon item" th:unless="${page.first}">上一頁</a>
+                            <a th:href="@{/admin/tags(page=${page.number}+1)}" class="icon item" th:unless="${page.last}">下一頁</a>
+                        </div>
+                        <a href="#" th:href="@{/admin/tags/input}" class="ui mini right floated blue basic button">新增</a>
+
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+<!-- Footer -->
+<footer th:replace="admin/_fragments :: footer" class="ui inverted vertical segment m-bot-footer">
+    <div class="ui center aligned container">
+    <div class="ui inverted section divider "></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright &copy 2018 by Peter</p>
+    </div>
+</footer>
+<!-- Footer -->
+
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+<script>
+     $('.menu.toggle').click(function () {
+         $('.m-item').toggleClass('m-mobile-hide');
+     });
+
+     $('.ui.dropdown').dropdown({
+         on:'hover'
+     });
+
+     //close info
+     $('.message .close').on('click',function () {
+         $(this)
+             .closest('.message')
+             .transition('fade');
+     });
+
+
+</script>
+
+</body>
+</html>

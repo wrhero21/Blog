@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於我</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" >
+    <link rel="stylesheet" href="../static/css/me.css" >
+</head>
+<body>
+
+<nav th:replace="_fragments :: menu(5)" class="ui inverted attached segment m-padded-tb-mini">
+    <div class="ui container">
+    <div class="ui inverted secondary stackable menu">
+        <h2 class="ui blue header item">Blog</h2>
+        <a href="#" class="m-item item m-mobile-hide">首頁</a>
+        <a href="#" class="m-item item m-mobile-hide">分類</a>
+        <a href="#" class="m-item item m-mobile-hide">標籤</a>
+        <a href="#" class="m-item item m-mobile-hide">歸檔</a>
+        <a href="#" class="m-item item m-mobile-hide">關於我</a>
+        <div class="right m-item item">
+            <div class="ui icon input">
+                <input type="text" placeholder="Search...">
+                <i class="search link icon"></i>
+            </div>
+        </div>
+    </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+
+</nav>
+<!--中間內容-->
+<div class="m-padded-tb-big m-container">
+    <div class="ui container">
+        <div class="ui stackable grid">
+            <div class="eleven wide column">
+                <div class="ui segment">
+                    <img src="../static/images/howaii.JPG" alt="" th:src="@{/images/howaii.JPG}" class="ui rounded image">
+                </div>
+
+            </div>
+            <div class="five wide column">
+                <div class="ui top attached segment">
+                    <div class="ui header">關於我</div>
+                </div>
+                <div class="ui attached segment">
+                    <p class="m-text-thin">我是朱宸頡，畢業於高雄應用科技大學-資管系，有4年網路設備相關工作經驗，熱愛學習新技術並解決問題</p>
+                    <p>Email:wrhero21@gmail.com</p>
+
+                </div>
+                <div class="ui attached segment">
+                    <h4>Programing</h4>
+                </div>
+                <div class="ui attached segment">
+                    <div class="ui blue basic left pointing label m-margin-top-tiny">Java</div>
+                    <div class="ui blue basic left pointing label m-margin-top-tiny">Python</div>
+                    <div class="ui blue basic left pointing label m-margin-top-tiny">HTML</div>
+                    <div class="ui blue basic left pointing label m-margin-top-tiny">CSS</div>
+                    <div class="ui blue basic left pointing label m-margin-top-tiny">JavaScript</div>
+                    <div class="ui blue basic left pointing label m-margin-top-tiny">MYSQL</div>
+                    <div class="ui blue basic left pointing label m-margin-top-tiny">Jquery</div>
+                </div>
+                <div class="ui attached segment">
+                    <h4>Framework</h4>
+                </div>
+                <div class="ui attached segment">
+                    <div class="ui blue basic left pointing label m-margin-top-tiny">Spring</div>
+                    <div class="ui blue basic left pointing label m-margin-top-tiny">Django</div>
+                </div>
+
+
+                <div class="ui bottom attached segment">
+                    <a href="https://github.com/wrhero21" target="_blank" class="ui circular icon button "><i class="github icon"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<!-- Footer -->
+<footer th:fragment="footer" class="ui inverted vertical segment m-bot-footer">
+    <div class="ui center aligned container">
+    <div class="ui inverted section divider "></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2018 by Peter</p>
+
+
+
+    </div>
+</footer>
+<!-- Footer -->
+
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+<script>
+    // $('.menu.toggle').click(function () {
+    //     $('.m-item').toggleClass('m-mobile-hide');
+    // });
+    $('.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+</script>
+
+</body>
+</html>

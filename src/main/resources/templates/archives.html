@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歸檔</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" >
+    <link rel="stylesheet" href="../static/css/me.css" >
+</head>
+<body>
+
+<nav th:replace="_fragments :: menu(4)" class="ui inverted attached segment m-padded-tb-mini">
+    <div class="ui container">
+    <div class="ui inverted secondary stackable menu">
+        <h2 class="ui blue header item">Blog</h2>
+        <a href="#" class="m-item item m-mobile-hide">首頁</a>
+        <a href="#" class="m-item item m-mobile-hide">分類</a>
+        <a href="#" class="m-item item m-mobile-hide">標籤</a>
+        <a href="#" class="m-item item m-mobile-hide">紀錄</a>
+        <a href="#" class="m-item item m-mobile-hide">關於我</a>
+        <div class="right m-item item">
+            <div class="ui icon input">
+                <input type="text" placeholder="Search...">
+                <i class="search link icon"></i>
+            </div>
+        </div>
+    </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+
+</nav>
+<!--中間內容-->
+<div class="m-padded-tb-big m-container-small">
+    <div class="ui container">
+        <!---header---->
+        <div class="ui top attached padded segment">
+            <div class="ui middle aligned two column grid">
+                <div class="column">
+                    <h3 class="ui blue header">紀錄</h3>
+                </div>
+                <div class="right aligned column">
+                    共 <h2 class="ui orange header m-inline-block m-text-thin" th:text="${blogCount}"> 14 </h2>篇網誌
+                </div>
+            </div>
+        </div>
+        <th:block th:each="item : ${archiveMap}">
+        <h2 class="ui center aligned header" th:text="${item.key}">2017</h2>
+        <div class="ui fluid vertical menu">
+            <a href="#" th:href="@{/blogs/{id}(id=${blog.id})}" target="_blank" class="item" th:each="blog : ${item.value}">
+                <span>
+                    <i class="circle icon blue mini"></i><span th:text="${blog.title}">標題</span>
+                    <div class="ui blue basic left pointing label m-padded-mini" th:text="${#dates.format(blog.updateTime,'MMMdd')}">9月03</div>
+                </span>
+                <div class="ui orange basic left pointing label m-padded-mini" th:text="${blog.flag}">原創</div>
+            </a>
+
+            <!--/*-->
+            <a href="#" target="_blank" class="item">
+                <span>
+                    <i class="circle icon blue mini"></i>標題
+                    <div class="ui blue basic left pointing label m-padded-mini">9月03</div>
+                </span>
+                <div class="ui orange basic left pointing label m-padded-mini">原創</div>
+
+            </a>
+            <a href="#" target="_blank" class="item">
+                <span>
+                    <i class="circle icon blue mini"></i>標題
+                    <div class="ui blue basic left pointing label m-padded-mini">9月03</div>
+                </span>
+                <div class="ui orange basic left pointing label m-padded-mini">原創</div>
+
+            </a>
+            <a href="#" target="_blank" class="item">
+                <span>
+                    <i class="circle icon blue mini"></i>標題
+                    <div class="ui blue basic left pointing label m-padded-mini">9月03</div>
+                </span>
+                <div class="ui orange basic left pointing label m-padded-mini">原創</div>
+
+            </a>
+            <a href="#" target="_blank" class="item">
+                <span>
+                    <i class="circle icon blue mini"></i>標題
+                    <div class="ui blue basic left pointing label m-padded-mini">9月03</div>
+                </span>
+                <div class="ui orange basic left pointing label m-padded-mini">原創</div>
+
+            </a>
+            <!--*/-->
+        </div>
+        </th:block>
+
+    </div>
+</div>
+<br>
+
+
+<!-- Footer -->
+<footer th:fragment="footer"  class="ui inverted vertical segment m-bot-footer">
+    <div class="ui center aligned container">
+    <div class="ui inverted section divider "></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2018 by Peter</p>
+    </div>
+</footer>
+
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+<script>
+    // $('.menu.toggle').click(function () {
+    //     $('.m-item').toggleClass('m-mobile-hide');
+    // });
+    $('.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+</script>
+
+</body>
+</html>

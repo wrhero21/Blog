@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>後台管理</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" >
+    <link rel="stylesheet" href="../../static/css/me.css" >
+</head>
+<body>
+
+<nav th:replace="admin/_fragments :: menu(n)" class="ui inverted attached segment m-padded-tb-mini">
+    <div class="ui container">
+    <div class="ui inverted secondary stackable menu">
+        <h2 class="ui blue header item">後台管理</h2>
+        <a href="#" class="m-item item m-mobile-hide" >網誌</a>
+        <a href="#" class="m-item item m-mobile-hide">分類</a>
+        <a href="#" class="m-item item m-mobile-hide">標籤</a>
+        <div class="right m-item m-mobile-hide menu">
+            <div class="ui dropdown item">
+                <div class="text">
+                    <img src="../../static/images/howaii.JPG" th:src="{/images/howaii.JPG}" class="ui avatar image">
+                    朱宸頡
+                </div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <a href="#" th:href="@{/admin/logout}" class="item">登出</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+<!--中間內容-->
+<div class="content m-padded-tb-big m-container-small">
+    <div class="ui container">
+        <div class="ui success large message">
+            <h2>Hi!</h2>
+            <p >歡迎登入~</p>
+        </div>
+        <img src="../../static/images/howaii.JPG" th:src="@{/images/howaii.JPG}" alt="" class="ui rounded bordered fluid image">
+
+    </div>
+</div>
+<br>
+
+
+<!-- Footer -->
+<footer th:replace="admin/_fragments :: footer" class="footer ui inverted vertical segment m-bot-footer">
+    <div class="ui center aligned container">
+    <div class="ui inverted section divider "></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2018 by Peter</p>
+    </div>
+</footer>
+<!-- Footer -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script>
+     $('.menu.toggle').click(function () {
+         $('.m-item').toggleClass('m-mobile-hide');
+     });
+
+     $('.ui.dropdown').dropdown({
+         on:'hover'
+     });
+
+
+</script>
+
+</body>
+</html>
