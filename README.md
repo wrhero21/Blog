@@ -7,12 +7,15 @@
 * 紀錄(按Blog發佈時間顯示)
 * 關於我
 
+![image](https://github.com/wrhero21/Blog/blob/master/Blog.jpg) 
+
 ## 後台：
 * 登入頁面
 * Blog管理(CRUD與查詢)
 * 分類管理(CRUD與查詢)
 * 標籤管理(CRUD與查詢)
 
+![image](https://github.com/wrhero21/Blog/blob/master/Blog_admin.jpg)
 
 **前端技術**
 * Semantic UI來進行RWD設計
